@@ -12,7 +12,6 @@ const FollowMouse = () => {
       const { clientX, clientY } = event
       console.log('handleMove', { clientX, clientY })
       setPosition({ x: clientX, y: clientY })
-
     }
 
     if (enabled) {
@@ -52,7 +51,7 @@ const FollowMouse = () => {
   )
 }
 
-function App() {
+function App () {
   return (
     <main>
       <FollowMouse />

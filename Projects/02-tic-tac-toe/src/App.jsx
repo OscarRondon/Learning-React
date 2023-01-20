@@ -6,7 +6,7 @@ import { checkWinner, checkEndGame } from './Controllers/board'
 import confetti from 'canvas-confetti' // npm install --save canvas-confetti
 import { WinnerModal } from './Components/WinnerModal'
 
-function App() {
+function App () {
   const [board, setBoard] = useState(() => {
     return window.localStorage.getItem('board') !== null ? JSON.parse(window.localStorage.getItem('board')) : Array(9).fill(null)
   })
