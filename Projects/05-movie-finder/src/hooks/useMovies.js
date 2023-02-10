@@ -9,7 +9,6 @@ export function useMovies () {
     year: movie.year,
     poster: movie.Poster
   }))
-  console.log(mappedMovies)
 
-  return { movies: mappedMovies }
+  return { mappedMovies }
 }
