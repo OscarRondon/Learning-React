@@ -16,3 +16,8 @@
     - debounce
         .- Dependencies
             > npm install just-debounce-it
+            
+* Sesion #5 [Projects: 06]
+    - sueId
+    - useContext
+    - useReduce
