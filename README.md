@@ -21,3 +21,6 @@
     - sueId
     - useContext
     - useReduce
+
+* Sesion #6 [Projects: 07]
+    - React Router
