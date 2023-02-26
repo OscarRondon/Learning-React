@@ -1,11 +1,11 @@
-import { Link } from '../Link'
+import { Link } from '../Link.jsx'
 
 export default function HomePage () {
   return (
     <>
       <h1>Home</h1>
-      <p>Example page for react router creation from scratch!!!</p>
-      <Link to='/about'>Go to About</Link>
+      <p>This is an example page of how to create a Reac router clon!!!</p>
+      <Link to='/about'>Go to About us</Link>
     </>
   )
 }

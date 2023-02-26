@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
-import { Router } from './Router'
-import { Route } from './Route'
-import { Link } from './Link'
-import { getCurrentPath } from './utils'
+import { Router } from './Router.jsx'
+import { Route } from './Route.jsx'
+import { Link } from './Link.jsx'
+import { getCurrentPath } from './utils.js'
 
 vi.mock('./utils.js', () => ({
   getCurrentPath: vi.fn()
@@ -31,7 +31,7 @@ describe('Router', () => {
     const routes = [
       {
         path: '/',
-        Component: () => <div>Home</div>
+        Component: () => <h1>Home</h1>
       },
       {
         path: '/about',
@@ -61,7 +61,6 @@ describe('Router', () => {
         <Route path='/about' Component={() => <h1>About</h1>} />
       </Router>
     )
-    console.log(screen.debug())
 
     // Click on the link
     const button = screen.getByText(/Go to About/)
