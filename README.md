@@ -23,5 +23,7 @@
     - useReduce
 
 * Sesion #6 [Projects: 07]
+    - lazy loading
     - React Router (own hand made)
     - pat-to-regexp [npm install path-to-regexp -E]
+    - publish package as npm package
