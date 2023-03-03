@@ -27,3 +27,6 @@
     - React Router (own hand made)
     - pat-to-regexp [npm install path-to-regexp -E]
     - publish package as npm package
+	
+* Sesion #7 [Projects: 08]
+	- React + TypeScript
