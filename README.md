@@ -28,5 +28,9 @@
     - pat-to-regexp [npm install path-to-regexp -E]
     - publish package as npm package
 	
-* Sesion #7 [Projects: 08]
+* Sesion #7 [Projects: 08] -> TODO App
 	- React + TypeScript
+
+* Sesion #8 [Projects: 08] -> Google translate clone
+	- React + TypeScript
+    - React Bootstrap
