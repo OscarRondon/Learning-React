@@ -33,4 +33,5 @@
 
 * Sesion #8 [Projects: 08] -> Google translate clone
 	- React + TypeScript
-    - React Bootstrap
+    - React Bootstrap [npm install react-bootstrap bootstrap -E]
+    - OpenIA [npm install openai -E]
