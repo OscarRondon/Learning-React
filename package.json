@@ -19,5 +19,8 @@
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
+  },
+  "dependencies": {
+    "openai": "3.2.1"
   }
 }
