@@ -82,23 +82,23 @@ export const useStore = () => {
     loading
   }, dispatch] = useReducer(reducer, initialState)
 
-  const interchangeLanguages = () => {
+  const interchangeLanguages = (): void => {
     dispatch({ type: 'INTERCHANGE_LANGUAGES' })
   }
 
-  const setFromLanguage = (payload: FromLanguage) => {
+  const setFromLanguage = (payload: FromLanguage): void => {
     dispatch({ type: 'SET_FROM_LANGUAGE', payload })
   }
 
-  const setToLanguage = (payload: Language) => {
+  const setToLanguage = (payload: Language): void => {
     dispatch({ type: 'SET_TO_LANGUAGE', payload })
   }
 
-  const setFromText = (payload: string) => {
+  const setFromText = (payload: string): void => {
     dispatch({ type: 'SET_FROM_TEXT', payload })
   }
 
-  const setResult = (payload: string) => {
+  const setResult = (payload: string): void => {
     dispatch({ type: 'SET_RESULT', payload })
   }
 
