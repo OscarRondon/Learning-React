@@ -35,3 +35,4 @@
 	- React + TypeScript
     - React Bootstrap [npm install react-bootstrap bootstrap -E]
     - OpenIA [npm install openai -E]
+    - testing React test [npm install vitest happy-dom @testing-library/react @testing-library/user-event]
