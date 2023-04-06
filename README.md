@@ -37,3 +37,28 @@
     - OpenIA [npm install openai -E]
     - testing React test [npm install vitest happy-dom @testing-library/react @testing-library/user-event]
     - own made debounce
+    
+* Session #9 [Project: 09] -> Crud (redux, tremor, react, ts, rome)
+    - tremor (componets for charts and tables) [https://www.tremor.so/]
+	- npm add @tremor/react -E <-- Needs tailwind to work
+    - tailwind (css styles)	
+        - npm add -D tailwindcss postcss autoprefixer
+        - npx tailwindcss init -p
+            /** @type {import('tailwindcss').Config} */
+            export default {
+                content: [
+                    "./index.html",
+                    "./src/**/*.{js,ts,jsx,tsx}",
+                    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
+                ],
+                theme: {
+                    extend: {},
+                },
+                plugins: [],
+            }
+        - Modify file inde.css, delete all content and paste:
+            @tailwind base;
+            @tailwind components;
+            @tailwind utilities;
+    - Redux
+    - Redux toolkit
