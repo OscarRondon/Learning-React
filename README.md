@@ -60,5 +60,8 @@
             @tailwind base;
             @tailwind components;
             @tailwind utilities;
-    - Redux
-    - Redux toolkit
+            
+    - Redux toolkit [https://redux-toolkit.js.org/]
+        - npm install @reduxjs/toolkit react-redux -E
+    - Sonner [Notifications:https://sonner.emilkowal.ski/] <An opinionated toast component for React>
+        - npm install sonner

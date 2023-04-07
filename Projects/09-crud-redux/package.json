@@ -9,10 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "1.9.3",
     "@tremor/react": "2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rome": "^12.0.0"
+    "react-redux": "8.0.5",
+    "rome": "^12.0.0",
+    "sonner": "^0.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
