@@ -44,6 +44,7 @@
     - tailwind (css styles)	
         - npm add -D tailwindcss postcss autoprefixer
         - npx tailwindcss init -p
+        - Modify tailwind.config.js
             /** @type {import('tailwindcss').Config} */
             export default {
                 content: [
