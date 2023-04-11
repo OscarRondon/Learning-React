@@ -64,5 +64,9 @@
             
     - Redux toolkit [https://redux-toolkit.js.org/]
         - npm install @reduxjs/toolkit react-redux -E
+        - create store
+        - create slice
+        - create middlewares
+        - create custom hook for slice
     - Sonner [Notifications:https://sonner.emilkowal.ski/] <An opinionated toast component for React>
         - npm install sonner
