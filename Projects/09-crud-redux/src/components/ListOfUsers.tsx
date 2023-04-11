@@ -10,41 +10,14 @@ import {
 	Title,
 } from "@tremor/react";
 
+import { useAppSelector } from "../hooks/store";
+import { useUserAction } from "../hooks/useUserAction";
 import { DeleteIcon, EditIcon } from "./IconsSVG";
 
-const users: {
-	id: string;
-	name: string;
-	email: string;
-	github: string;
-}[] = [
-	{
-		id: "1FFxpE2854356-EF11",
-		name: "Peter Doe",
-		email: "Peter.Doe@gmail.com",
-		github: "oscarrondon",
-	},
-	{
-		id: "2FFxpE2854356-EF12",
-		name: "Lena Whitehouse",
-		email: "Lena.Whitehouse@gmail.com",
-		github: "Lena.Whitehouse",
-	},
-	{
-		id: "3FFxpE2854356-EF13",
-		name: "Phil Less",
-		email: "Phil.Less@gmail.com",
-		github: "leo",
-	},
-	{
-		id: "4FFxpE2854356-EF14",
-		name: "John Camper",
-		email: "John.Camper@gmail.com",
-		github: "John.Camper",
-	},
-];
-
 export function ListOfUsers() {
+	const users = useAppSelector((state) => state.users);
+	const { removeUser } = useUserAction();
+
 	return (
 		<Card>
 			<Title>
@@ -89,7 +62,7 @@ export function ListOfUsers() {
 								<button type="button">
 									<EditIcon />
 								</button>
-								<button type="button">
+								<button type="button" onClick={() => removeUser(item.id)}>
 									<DeleteIcon />
 								</button>
 							</TableCell>
