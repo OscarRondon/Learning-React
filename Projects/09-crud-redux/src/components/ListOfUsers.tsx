@@ -10,13 +10,11 @@ import {
 	Title,
 } from "@tremor/react";
 
-import { useAppSelector } from "../hooks/store";
 import { useUserAction } from "../hooks/useUserAction";
 import { DeleteIcon, EditIcon } from "./IconsSVG";
 
 export function ListOfUsers() {
-	const users = useAppSelector((state) => state.users);
-	const { removeUser } = useUserAction();
+	const { users, removeUser } = useUserAction();
 
 	return (
 		<Card>
