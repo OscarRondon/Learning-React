@@ -70,3 +70,7 @@
         - create custom hook for slice
     - Sonner [Notifications:https://sonner.emilkowal.ski/] <An opinionated toast component for React>
         - npm install sonner
+        
+* Session #10 [Project: 10, 11] (React Query)
+    - TanStack Query (before know as reactQuery) [https://tanstack.com/query/latest]
+        . npm install @tanstack/react-query -E
