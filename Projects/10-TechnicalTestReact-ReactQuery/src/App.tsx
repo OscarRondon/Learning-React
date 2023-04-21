@@ -1,40 +1,33 @@
 import './App.css'
-import { useEffect, useRef, useMemo } from 'react'
+import { /* useEffect,  useRef, */ useMemo } from 'react'
 import { useReducerApp } from './hooks/useReducerApp'
-import { SortBy, type User } from './types/user.d'
+import { SortBy } from './types/user.d'
 import { UsersList } from './components/UsersList'
+import { useUser } from './hooks/useUser'
+import { Results } from './components/Results'
 
-const fetchUsers = async (page: number) => {
-  return await fetch(`https://randomuser.me/api/?page=${page}&results=10&seed=orondon`)
-    .then(async apiResult => {
-      if (!apiResult.ok) {
-        throw new Error('Something went wrong')
-      }
-      return await apiResult.json()
-    })
-    .then(jsonResult => jsonResult.results as User[])
-}
 
 function App () {
+
   const {
+    isError,
+    isLoading,
     users,
+    refetch,
+    fetchNextPage,
+    hasNextPage
+  } = useUser()
+
+  const {
     showColors,
     sorting,
     filterCountry,
-    loading,
-    error,
-    currentPage,
-    resetState,
-    setUsers,
     setShowColors,
     setSorting,
-    setFilterCountry,
-    setLoading,
-    setError,
-    setCurrentPage
+    setFilterCountry
   } = useReducerApp()
 
-  const originalUsers = useRef<User[]>([])
+  // const originalUsers = useRef<User[]>([])
 
   const toggleColors = () => { setShowColors(!showColors) }
 
@@ -44,33 +37,15 @@ function App () {
   }
 
   const handleDeleteUser = (email: string) => {
-    const filteredUsers = users.filter(user => user.email !== email)
-    setUsers(filteredUsers)
   }
 
-  const handleReset = () => { resetState(originalUsers.current) }
+  const handleReset = () => {
+    void refetch()
+  }
 
   const handleChangeSort = (sortby: SortBy) => {
     setSorting(sortby)
   }
-
-  useEffect(() => {
-    setLoading(true)
-    setError(false)
-
-    fetchUsers(currentPage)
-      .then(users => {
-        setUsers(users)
-        if (currentPage === 1) originalUsers.current = users
-      })
-      .catch(err => {
-        setError(true)
-        console.log(err)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [currentPage])
 
   const filteredUsers = useMemo(() => {
     return typeof filterCountry === 'string' && filterCountry.length > 0
@@ -109,10 +84,11 @@ function App () {
   return (
     <>
       <h1>React Technical Test </h1>
+      <Results/>
       <header>
         <button onClick={toggleColors}>Toggle colors</button>
         <button onClick={toggleSortByCountry}>{sorting === SortBy.COUNTRY ? 'Unsort by country' : 'Sort by country'}</button>
-        <button onClick={handleReset}>Reset State</button>
+        <button onClick={handleReset} >Reset State</button>
         <input placeholder='Filter by Country' onChange={(e) => { setFilterCountry(e.target.value) }} autoComplete='false' />
       </header>
       <main>
@@ -124,15 +100,16 @@ function App () {
             chageSorting={handleChangeSort}
           />
         }
-        {loading && <p>Loading...</p>}
-        {!loading && error && <p>Error Ocurred.</p>}
-        {!loading && !error && users.length === 0 && <p>No users found.</p>}
-        {!loading && !error &&
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && isError && <p>Error Ocurred.</p>}
+        {!isLoading && !isError && users.length === 0 && <p>No users found.</p>}
+        {!isLoading && !isError && hasNextPage === true &&
           <button type='button'
-            onClick={() => { setCurrentPage(currentPage + 1) }}
+            onClick={() => { void fetchNextPage() }}
             style={{ marginTop: '30px' }}
             >Next Page</button>
         }
+        {!isLoading && !isError && hasNextPage === false && <p>There is no more results</p>}
       </main>
     </>
   )

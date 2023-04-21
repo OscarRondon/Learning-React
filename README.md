@@ -74,3 +74,4 @@
 * Session #10 [Project: 10, 11] (React Query)
     - TanStack Query (before know as reactQuery) [https://tanstack.com/query/latest]
         . npm install @tanstack/react-query -E
+        . npm install @tanstack/react-query-devtools
