@@ -75,3 +75,7 @@
     - TanStack Query (before know as reactQuery) [https://tanstack.com/query/latest]
         . npm install @tanstack/react-query -E
         . npm install @tanstack/react-query-devtools -D
+
+* Session #11 [Project 11] (Zustand)
+    - Material UI [https://mui.com/]
+    - Zustand [https://docs.pmnd.rs/zustand/getting-started/introduction]
