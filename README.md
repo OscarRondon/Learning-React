@@ -79,3 +79,4 @@
 * Session #11 [Project 11] (Zustand)
     - Material UI [https://mui.com/]
     - Zustand [https://docs.pmnd.rs/zustand/getting-started/introduction]
+    - React Syntax Highlighter [https://github.com/react-syntax-highlighter/react-syntax-highlighter]

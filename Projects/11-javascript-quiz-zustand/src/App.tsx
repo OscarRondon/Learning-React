@@ -3,6 +3,7 @@ import './App.css'
 import { JavaScriptLogo } from './components/SVGIcons'
 import { Start } from './components/Start'
 import { useQuestionStore } from './store/questions'
+import { Game } from './components/Game'
 
 function App () {
 
@@ -17,7 +18,8 @@ function App () {
             JavaScript Quiz!!
           </Typography>
         </Stack>
-        <Start />
+        {questions.length === 0 && <Start />}
+        {questions.length > 0 && <Game />}
       </Container>
     </main>
   )
