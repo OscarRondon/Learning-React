@@ -1,30 +1,32 @@
+import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material'
 import { useQuestionStore } from '../store/questions'
 import { type Question as QuestionType } from '../types/commonTypes.d'
-import { Card, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
+import { Card, IconButton, List, ListItem, ListItemButton, ListItemText, Stack, Typography } from '@mui/material'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { gradientDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { Footer } from './Footer'
+
+
+const getBackgroundColor = (info: QuestionType, index: number) => {
+  const { userSelectedAnswer, correctAnswer } = info
+  // usuario no ha seleccionado nada todavía
+  if (userSelectedAnswer == null) return 'transparent'
+  // si ya selecciono pero la solución es incorrecta
+  if (index !== correctAnswer && index !== userSelectedAnswer) return 'transparent'
+  // si esta es la solución correcta
+  if (index === correctAnswer) return 'green'
+  // si esta es la selección del usuario pero no es correcta
+  if (index === userSelectedAnswer) return 'red'
+  // si no es ninguna de las anteriores
+  return 'transparent'
+}
 
 const Question = ({ info }: { info: QuestionType }) => {
 
   const selectAnswer = useQuestionStore(state => state.selectAnswer)
   // const userSelectedAnswer = useQuestionStore(state => state.userSelectedAnswer)
-
   const createHandleClick = (answerIndex: number) => () => {
     selectAnswer(info.id, answerIndex)
-  }
-
-  const getBackgroundColor = (info: QuestionType, index: number) => {
-    const { userSelectedAnswer, correctAnswer } = info
-    // usuario no ha seleccionado nada todavía
-    if (userSelectedAnswer == null) return 'transparent'
-    // si ya selecciono pero la solución es incorrecta
-    if (index !== correctAnswer && index !== userSelectedAnswer) return 'transparent'
-    // si esta es la solución correcta
-    if (index === correctAnswer) return 'green'
-    // si esta es la selección del usuario pero no es correcta
-    if (index === userSelectedAnswer) return 'red'
-    // si no es ninguna de las anteriores
-    return 'transparent'
   }
 
   return (
@@ -61,12 +63,26 @@ const Question = ({ info }: { info: QuestionType }) => {
 export function Game () {
   const questions = useQuestionStore(state => state.questions)
   const currentQuestion = useQuestionStore(state => state.currentQuestion)
+  const goNextQuestion = useQuestionStore(state => state.goNextQuestion)
+  const goPreviousQuestion = useQuestionStore(state => state.goPreviousQuestion)
 
   const questionInfo = questions[currentQuestion]
 
   return (
     <>
+      <Stack direction='row' gap={2} alignItems='center' justifyContent='center'>
+        <IconButton onClick={goPreviousQuestion} disabled={currentQuestion === 0}>
+          <ArrowBackIosNew />
+        </IconButton>
+
+        {currentQuestion + 1} / {questions.length}
+
+        <IconButton onClick={goNextQuestion} disabled={currentQuestion >= questions.length - 1}>
+          <ArrowForwardIos />
+        </IconButton>
+      </Stack>
       <Question info={questionInfo} />
+      <Footer />
     </>
   )
 }
