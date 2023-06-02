@@ -7,7 +7,7 @@ module.exports = {
     './node_modules/ts-standard/eslintrc.json'
   ],
   parser: '@typescript-eslint/parser',
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module', project: './tsconfig.json'  },
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module', project: './tsconfig.json' },
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': 'warn',
@@ -17,5 +17,5 @@ module.exports = {
     '@typescript-eslint/method-signature-style': 'off',
     'no-multiple-empty-lines': 'off',
     'padded-blocks': 'off'
-  },
+  }
 }
