@@ -14,7 +14,7 @@
     - useMemo
     - useCallback
     - debounce
-        .- Dependencies
+        - Dependencies
             > npm install just-debounce-it
             
 ## Sesion #5 [Projects: 06]

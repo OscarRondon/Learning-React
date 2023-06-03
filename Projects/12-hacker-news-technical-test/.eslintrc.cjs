@@ -15,6 +15,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/method-signature-style': 'off',
+    '@typescript-eslint/promise-function-async': 'off',
     'no-multiple-empty-lines': 'off',
     'padded-blocks': 'off'
   }
