@@ -3,7 +3,6 @@ export async function getTopStories (page: number, limit: number) {
   const json = await response.json()
   const startIndex = (page - 1) * limit
   const endIndex = startIndex + limit
-
   return json.slice(startIndex, endIndex)
 }
 

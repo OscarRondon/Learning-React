@@ -88,3 +88,4 @@
   - Placeholder/Skeleton
   - Lazzy loading
   - Router (for SPA)
+  - time calculation
