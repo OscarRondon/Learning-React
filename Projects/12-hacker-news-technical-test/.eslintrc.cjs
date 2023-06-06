@@ -16,6 +16,8 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/method-signature-style': 'off',
     '@typescript-eslint/promise-function-async': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
     'no-multiple-empty-lines': 'off',
     'padded-blocks': 'off'
   }

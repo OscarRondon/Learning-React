@@ -3,6 +3,8 @@ import { Link } from 'wouter'
 import useSWR from 'swr'
 import { getItemInfo } from '../services/hacker-news'
 import { storyLink, story, storyFooter, storyHeader, storyTitle } from '../styles/Story.css'
+import { StoryLoader } from './storyLoader'
+import { getRelativeTime } from '../utils/getRelativeTime'
 
 interface Props {
   id: number
@@ -12,11 +14,13 @@ interface Props {
 export default function Story ({ id, index }: Props) {
 
   const fetcher = () => getItemInfo(id)
-  const { data, error, isLoading } = useSWR(`story/${id}`, fetcher)
+  const { data, isLoading } = useSWR(`story/${id}`, fetcher)
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <StoryLoader />
 
   const { by, kids, score, time, title, url } = data
+
+  const relativeTime = getRelativeTime(time)
 
   let domain = ''
   try {
@@ -49,7 +53,7 @@ export default function Story ({ id, index }: Props) {
       <footer className={storyFooter}>
         <small>{score} points</small>
         <Link className={storyLink} href={`/article/${id}`}>by: {by}</Link>
-        <Link className={storyLink} href={`/article/${id}`}>Posted {time} Ago</Link>
+        <Link className={storyLink} href={`/article/${id}`}>{relativeTime}</Link>
         <Link className={storyLink} href={`/article/${id}`}>{kids?.length ?? 0} comments</Link>
       </footer>
     </article>

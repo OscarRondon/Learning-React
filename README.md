@@ -82,7 +82,7 @@
     - React Syntax Highlighter [https://github.com/react-syntax-highlighter/react-syntax-highlighter]
     -Redux DevTools
 
-## Session #12 [Project 12] (Tecnical test)
+## Session #12 [Project 12] (Tecnical test [Hacker news])
   - Recursive components
   - Inifite Scroll
   - Placeholder/Skeleton
